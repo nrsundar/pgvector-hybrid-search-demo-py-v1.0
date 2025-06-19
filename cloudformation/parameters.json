@@ -1,0 +1,7 @@
+{
+  "ProjectName": "pgvector-hybrid-search-demo-py",
+  "PostgreSQLVersion": "15.4",
+  "DatabaseInstanceType": "db.t3.medium",
+  "BastionInstanceType": "t3.micro",
+  "KeyPairName": "your-ec2-key-pair"
+}
