@@ -1,13 +1,13 @@
 # Module 01: Database Setup and Configuration
 
 ## Overview
-Setting up PostgreSQL 15.4 for high-performance applications with advanced configuration.
+Setting up PostgreSQL 16 for high-performance applications with advanced configuration.
 
 ## Installation and Setup
 ```bash
 # Install PostgreSQL
 sudo apt update
-sudo apt install postgresql-15.4 postgresql-contrib-15.4
+sudo apt install postgresql-16 postgresql-contrib-16
 
 # Start service
 sudo systemctl start postgresql

@@ -3,7 +3,7 @@
 # AWS CloudFormation Deployment Script for pgvector-hybrid-search-demo-py
 # =============================================================================
 # Description: Automated deployment of complete PostgreSQL demo environment
-# Target: Aurora PostgreSQL 15.4 with PostGIS
+# Target: Aurora PostgreSQL 16 with PostGIS
 # Use Case: Vector/Hybrid Search
 # Language: Python
 # =============================================================================
@@ -37,7 +37,7 @@ PROJECT_NAME="pgvector-hybrid-search-demo-py"
 STACK_NAME="${PROJECT_NAME}-stack"
 AWS_REGION="${AWS_REGION:-us-east-1}"
 KEY_PAIR_NAME="${KEY_PAIR_NAME:-${PROJECT_NAME}-keypair}"
-POSTGRES_VERSION="15.4"
+POSTGRES_VERSION="16"
 DB_INSTANCE_TYPE="db.r6g.large"
 BASTION_INSTANCE_TYPE="t3.micro"
 

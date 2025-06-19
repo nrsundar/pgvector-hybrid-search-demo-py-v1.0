@@ -1,7 +1,7 @@
 # Presentation Guide for pgvector-hybrid-search-demo-py
 
 ## Overview
-Professional presentation guide for demonstrating PostgreSQL 15.4 capabilities for Vector/Hybrid Search.
+Professional presentation guide for demonstrating PostgreSQL 16 capabilities for Vector/Hybrid Search.
 
 ## Pre-Demo Checklist
 - Environment setup and testing
@@ -13,7 +13,7 @@ Professional presentation guide for demonstrating PostgreSQL 15.4 capabilities f
 
 ### Introduction (5 minutes)
 - Project overview and objectives
-- PostgreSQL 15.4 capabilities
+- PostgreSQL 16 capabilities
 - Expected outcomes and benefits
 
 ### Technical Demonstration (20 minutes)
@@ -28,7 +28,7 @@ Professional presentation guide for demonstrating PostgreSQL 15.4 capabilities f
 - Define follow-up actions
 
 ## Key Value Propositions
-- Enhanced performance with PostgreSQL 15.4
+- Enhanced performance with PostgreSQL 16
 - Scalable architecture design
 - Production-ready implementation
 - Comprehensive support and maintenance
@@ -41,4 +41,4 @@ Professional presentation guide for demonstrating PostgreSQL 15.4 capabilities f
 
 Generated for: Vector/Hybrid Search
 Language: Python
-Database: PostgreSQL 15.4
+Database: PostgreSQL 16

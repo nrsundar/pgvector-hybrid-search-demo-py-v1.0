@@ -2,7 +2,7 @@
 
 ## Complete PostgreSQL Demo - Vector/Hybrid Search
 
-A comprehensive, production-ready demonstration showcasing Vector/Hybrid Search capabilities using Aurora PostgreSQL 15.4 with pgvector extension for hybrid search and Python implementation on AWS.
+A comprehensive, production-ready demonstration showcasing Vector/Hybrid Search capabilities using Aurora PostgreSQL 16 with pgvector extension for hybrid search and Python implementation on AWS.
 
 ## ⚠️ IMPORTANT DISCLAIMERS
 
@@ -146,24 +146,23 @@ This repository provides a complete, end-to-end PostgreSQL demonstration environ
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                           Internet Gateway                      │
+│                           Internet Gateway                        │
 └─────────────────────────┬───────────────────────────────────────┘
                           │
 ┌─────────────────────────┴───────────────────────────────────────┐
-│                        Public Subnet                            │
-│  ┌─────────────────────────────────────────────────────────────┐│
-│  │              Ubuntu Bastion Host                            ││
-│  │        (Application Deployment Target)                      ││
-│  └─────────────────────────────────────────────────────────────┘│
+│                        Public Subnet                             │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │              Ubuntu Bastion Host                            │ │
+│  │        (Application Deployment Target)                     │ │
+│  └─────────────────────────────────────────────────────────────┘ │
 └─────────────────────────┬───────────────────────────────────────┘
                           │
 ┌─────────────────────────┴───────────────────────────────────────┐
-│                      Private Subnets                            │
-│  ┌─────────────────────────────────────────────────────────────┐│
-│  │            Aurora PostgreSQL Cluster                        ││
-│  │                         PostgreSQL 15.4                     ││
-│  │         (Writer + Reader Instances)                         ││
-│  └─────────────────────────────────────────────────────────────┘│
+│                      Private Subnets                             │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │            Aurora PostgreSQL Cluster                       │ │
+│  │        PostgreSQL 16                    │ ││  │         (Writer + Reader Instances)                     │ │
+│  └─────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -236,7 +235,7 @@ aws cloudformation deploy \
     --parameter-overrides \
         ProjectName=pgvector-hybrid-search-demo-py \
         KeyPairName=pgvector-hybrid-search-demo-py-keypair \
-        PostgreSQLVersion=15.4 \
+        PostgreSQLVersion=16 \
         DatabaseInstanceType=db.r6g.large \
         BastionInstanceType=t3.micro \
     --capabilities CAPABILITY_IAM \
@@ -323,10 +322,10 @@ python3 app.py
 sudo apt update
 
 # Install PostgreSQL
-sudo apt install -y postgresql postgresql-contrib postgresql-15.4
+sudo apt install -y postgresql postgresql-contrib postgresql-16
 
 # Install PostGIS
-sudo apt install -y postgis postgresql-15.4-postgis-3
+sudo apt install -y postgis postgresql-16-postgis-3
 
 # Start PostgreSQL service
 sudo systemctl start postgresql
@@ -781,10 +780,10 @@ psql -h $DB_ENDPOINT -U postgres pgvector_hybrid_search_demo_py < backup_2023120
 
 ---
 
-**Generated on**: 2025-06-19T02:54:17.160Z
+**Generated on**: 2025-06-19T03:08:39.363Z
 **Version**: 1.0.0
 **Tested on**: AWS us-east-1
-**PostgreSQL Version**: 15.4
+**PostgreSQL Version**: 16
 **PostGIS Version**: 3.4
 
 

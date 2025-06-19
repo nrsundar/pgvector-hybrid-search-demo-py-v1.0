@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 pgvector-hybrid-search-demo-py - Production-Ready Flask API Server
-PostgreSQL 15.4 with Advanced Analytics
+PostgreSQL 16 with Advanced Analytics
 """
 
 import os
@@ -68,7 +68,7 @@ def home():
     <body>
         <div class="container">
             <h1>pgvector-hybrid-search-demo-py</h1>
-            <p><span class="status">✓ ONLINE</span> | PostgreSQL 15.4 Analytics API</p>
+            <p><span class="status">✓ ONLINE</span> | PostgreSQL 16 Analytics API</p>
             
             <h2>API Endpoints</h2>
             

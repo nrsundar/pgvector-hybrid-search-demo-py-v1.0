@@ -9,7 +9,7 @@ Parameters:
   
   PostgreSQLVersion:
     Type: String
-    Default: '15.4'
+    Default: '16'
     Description: 'PostgreSQL engine version'
   
   DatabaseInstanceType:

@@ -13,7 +13,7 @@ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main"
 sudo apt update
 
 # Install PostgreSQL client tools only
-sudo apt install -y postgresql-client-15.4 postgresql-contrib postgresql-client-common
+sudo apt install -y postgresql-client-16 postgresql-contrib postgresql-client-common
 
 # Install development tools
 sudo apt install -y build-essential git curl unzip

@@ -1,10 +1,10 @@
 # Customer Talking Points for pgvector-hybrid-search-demo-py
 
 ## Executive Summary
-Comprehensive PostgreSQL 15.4 solution for Vector/Hybrid Search with production-ready implementation.
+Comprehensive PostgreSQL 16 solution for Vector/Hybrid Search with production-ready implementation.
 
 ## Key Value Propositions
-- Enhanced performance with PostgreSQL 15.4
+- Enhanced performance with PostgreSQL 16
 - Scalable architecture for growing businesses
 - Production-ready deployment with best practices
 - Comprehensive support and documentation
@@ -35,4 +35,4 @@ Comprehensive PostgreSQL 15.4 solution for Vector/Hybrid Search with production-
 
 Generated for: Vector/Hybrid Search
 Language: Python
-Database: PostgreSQL 15.4
+Database: PostgreSQL 16
