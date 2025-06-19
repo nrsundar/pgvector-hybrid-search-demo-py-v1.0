@@ -38,7 +38,7 @@ DB_NAME=postgres
 DB_USER=postgres
 DB_PASSWORD=SecurePassword123!
 DATABASE_URL=postgresql://postgres:SecurePassword123!@<database-endpoint>:5432/postgres
-AWS_REGION=us-west-2
+AWS_REGION=us-east-1
 EOF
 
 # Create database connection test script

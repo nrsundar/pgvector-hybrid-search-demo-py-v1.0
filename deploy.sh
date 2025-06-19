@@ -35,7 +35,7 @@ error_exit() {
 # Configuration variables
 PROJECT_NAME="pgvector-hybrid-search-demo-py"
 STACK_NAME="${PROJECT_NAME}-stack"
-AWS_REGION="${AWS_REGION:-us-west-2}"
+AWS_REGION="${AWS_REGION:-us-east-1}"
 KEY_PAIR_NAME="${KEY_PAIR_NAME:-${PROJECT_NAME}-keypair}"
 POSTGRES_VERSION="16"
 DB_INSTANCE_TYPE="db.r6g.large"

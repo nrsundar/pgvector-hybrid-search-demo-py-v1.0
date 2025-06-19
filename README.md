@@ -9,7 +9,7 @@ A comprehensive, production-ready demonstration showcasing Vector/Hybrid Search 
 ### 🚨 AWS Costs Warning
 **This deployment will incur AWS charges. You are responsible for all costs.**
 
-**Estimated Monthly Costs (us-west-2):**
+**Estimated Monthly Costs (us-east-1):**
 - Bastion Host (t3.micro): ~$8-12/month
 - Database (Aurora PostgreSQL cluster): ~$150-300/month
 - Storage (100GB): ~$10-15/month
@@ -133,12 +133,78 @@ This repository provides a complete, end-to-end PostgreSQL demonstration environ
 - ✅ **Infrastructure as Code**: Complete CloudFormation templates
 - ✅ **AWS Native**: Aurora PostgreSQL cluster with Multi-AZ
 - ✅ **Security First**: VPC isolation, security groups, encrypted storage
-- ✅ **Performance Tuned**: Optimized for routing workloads
+- ✅ **Vector/Hybrid Search Ready**: pgvector extension with semantic and hybrid search capabilities
 - ✅ **Ubuntu Bastion**: Secure administrative access point
 - ✅ **Auto Scaling**: Aurora auto-scaling enabled
 - ✅ **Monitoring**: CloudWatch dashboards and alerting
 - ✅ **Backup Strategy**: Automated backups and point-in-time recovery
 - ✅ **High Availability**: Multi-AZ deployment for production resilience
+
+
+
+## Search Technology Comparison
+
+This demonstration showcases three distinct search approaches, each with unique strengths and optimal use cases:
+
+### 🔍 Traditional Search (Keyword-Based)
+**How it works**: Matches exact words and phrases using SQL LIKE, full-text search, or inverted indexes.
+
+**Strengths**:
+- Fast and precise for exact term matching
+- Excellent for structured data queries
+- Predictable and transparent results
+- Minimal computational overhead
+
+**Limitations**:
+- Cannot understand semantic meaning or context
+- Misses synonyms and related concepts
+- Struggles with different phrasings of same intent
+- Poor performance on natural language queries
+
+**Example**: Searching "PostgreSQL performance" only finds documents containing those exact words.
+
+### 🧠 Semantic Search (Vector-Based)
+**How it works**: Converts text and images into high-dimensional vectors (embeddings) that capture semantic meaning, then finds similar vectors using cosine similarity.
+
+**Strengths**:
+- Understands meaning, context, and synonyms
+- Finds conceptually related content even with different wording
+- Excellent for natural language queries
+- Works across multiple languages and modalities (text + images)
+
+**Limitations**:
+- Requires vector computation and storage overhead
+- Results can sometimes be unexpectedly broad
+- Less precise for exact term matching
+- Requires quality embedding models
+
+**Example**: Searching "database optimization" finds documents about "SQL tuning", "query performance", and "index strategies" even if they don't contain the exact search terms.
+
+### ⚡ Hybrid Search (Best of Both Worlds)
+**How it works**: Combines traditional keyword matching with semantic vector search, using weighted scoring to merge both result sets.
+
+**Strengths**:
+- Balances precision (exact matches) with recall (semantic matches)
+- Configurable weighting between keyword and semantic relevance
+- Handles both specific technical terms and natural language queries
+- Provides comprehensive coverage of relevant results
+
+**Implementation**:
+- Traditional score × keyword_weight + Semantic score × vector_weight = Final score
+- Typical weightings: 60% semantic + 40% keyword for broad discovery
+- Can be adjusted: 70% keyword + 30% semantic for precise technical searches
+
+**Example**: Searching "PostgreSQL indexing strategies" returns exact matches for those terms (high keyword score) plus semantically related content about "database performance tuning" and "query optimization" (high vector score).
+
+### Use Case Recommendations
+
+| Search Type | Best For | Examples |
+|-------------|----------|----------|
+| **Traditional** | Exact terminology, structured data, known keywords | Product SKUs, error codes, specific table names |
+| **Semantic** | Natural language, exploration, cross-domain discovery | "How to improve database speed?", content recommendation |
+| **Hybrid** | Enterprise applications, comprehensive coverage | Technical documentation search, knowledge bases |
+
+
 
 ## Architecture
 
@@ -146,24 +212,23 @@ This repository provides a complete, end-to-end PostgreSQL demonstration environ
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                           Internet Gateway                      │
+│                           Internet Gateway                        │
 └─────────────────────────┬───────────────────────────────────────┘
                           │
 ┌─────────────────────────┴───────────────────────────────────────┐
-│                        Public Subnet                            │
-│  ┌─────────────────────────────────────────────────────────────┐│
-│  │              Ubuntu Bastion Host                            ││
-│  │            (Application Deployment Target)                  ││
-│  └─────────────────────────────────────────────────────────────┘│
+│                        Public Subnet                             │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │              Ubuntu Bastion Host                            │ │
+│  │        (Application Deployment Target)                     │ │
+│  └─────────────────────────────────────────────────────────────┘ │
 └─────────────────────────┬───────────────────────────────────────┘
                           │
 ┌─────────────────────────┴───────────────────────────────────────┐
-│                      Private Subnets                            │
-│  ┌─────────────────────────────────────────────────────────────┐│
-│  │            Aurora PostgreSQL Cluster                        ││
-│  │                  PostgreSQL 16                              ││
-│  │            (Writer + Reader Instances)                      ││
-│  └─────────────────────────────────────────────────────────────┘│
+│                      Private Subnets                             │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │            Aurora PostgreSQL Cluster                       │ │
+│  │        PostgreSQL 16                    │ ││  │         (Writer + Reader Instances)                     │ │
+│  └─────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -240,12 +305,12 @@ aws cloudformation deploy \
         DatabaseInstanceType=db.r6g.large \
         BastionInstanceType=t3.micro \
     --capabilities CAPABILITY_IAM \
-    --region us-west-2
+    --region us-east-1
 
 # Wait for deployment completion (10-15 minutes)
 aws cloudformation wait stack-create-complete \
     --stack-name pgvector-hybrid-search-demo-py-stack \
-    --region us-west-2
+    --region us-east-1
 ```
 
 ### Step 4: Get Connection Information
@@ -255,7 +320,7 @@ BASTION_IP=$(aws cloudformation describe-stacks \
     --stack-name pgvector-hybrid-search-demo-py-stack \
     --query 'Stacks[0].Outputs[?OutputKey==`BastionHostIP`].OutputValue' \
     --output text \
-    --region us-west-2)
+    --region us-east-1)
 
 echo "Bastion Host IP: $BASTION_IP"
 
@@ -264,7 +329,7 @@ DB_ENDPOINT=$(aws cloudformation describe-stacks \
     --stack-name pgvector-hybrid-search-demo-py-stack \
     --query 'Stacks[0].Outputs[?OutputKey==`DatabaseEndpoint`].OutputValue' \
     --output text \
-    --region us-west-2)
+    --region us-east-1)
 
 echo "Database Endpoint: $DB_ENDPOINT"
 ```
@@ -790,9 +855,9 @@ psql -h $DB_ENDPOINT -U postgres pgvector_hybrid_search_demo_py < backup_2023120
 
 ---
 
-**Generated on**: 2025-06-19T03:32:54.589Z
+**Generated on**: 2025-06-19T03:52:21.739Z
 **Version**: 1.0.0
-**Tested on**: AWS us-west-2
+**Tested on**: AWS us-east-1
 **PostgreSQL Version**: 16
 **pgvector Version**: 0.5.1
 
