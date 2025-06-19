@@ -1,10 +1,10 @@
-# Module 04: Hybrid Search Implementation
+# Module 04: Route Algorithm Implementation
 
 ## Overview
-Hybrid Search Implementation for PostgreSQL applications.
+Route Algorithm Implementation for PostgreSQL applications.
 
 ## Implementation Details
-[Comprehensive content for Hybrid Search Implementation]
+[Comprehensive content for Route Algorithm Implementation]
 
 ## Best Practices
 [Industry best practices and recommendations]

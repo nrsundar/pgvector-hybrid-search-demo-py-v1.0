@@ -1,10 +1,10 @@
-# Module 07: Multi-modal Search Integration
+# Module 07: Performance Tuning
 
 ## Overview
-Multi-modal Search Integration for PostgreSQL applications.
+Performance Tuning for PostgreSQL applications.
 
 ## Implementation Details
-[Comprehensive content for Multi-modal Search Integration]
+[Comprehensive content for Performance Tuning]
 
 ## Best Practices
 [Industry best practices and recommendations]

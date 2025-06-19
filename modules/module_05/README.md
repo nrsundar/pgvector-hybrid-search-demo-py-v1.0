@@ -1,10 +1,10 @@
-# Module 05: Vector Indexing & Performance Optimization
+# Module 05: Path Optimization
 
 ## Overview
-Vector Indexing & Performance Optimization for PostgreSQL applications.
+Path Optimization for PostgreSQL applications.
 
 ## Implementation Details
-[Comprehensive content for Vector Indexing & Performance Optimization]
+[Comprehensive content for Path Optimization]
 
 ## Best Practices
 [Industry best practices and recommendations]

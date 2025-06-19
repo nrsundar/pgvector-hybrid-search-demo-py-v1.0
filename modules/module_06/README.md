@@ -1,10 +1,10 @@
-# Module 06: Advanced Retrieval Patterns
+# Module 06: Real-time Routing
 
 ## Overview
-Advanced Retrieval Patterns for PostgreSQL applications.
+Real-time Routing for PostgreSQL applications.
 
 ## Implementation Details
-[Comprehensive content for Advanced Retrieval Patterns]
+[Comprehensive content for Real-time Routing]
 
 ## Best Practices
 [Industry best practices and recommendations]

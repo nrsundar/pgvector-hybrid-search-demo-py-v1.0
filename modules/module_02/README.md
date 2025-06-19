@@ -1,10 +1,10 @@
-# Module 02: Document Processing & Text Embeddings
+# Module 02: PostgreSQL Extensions
 
 ## Overview
-Document Processing & Text Embeddings for PostgreSQL applications.
+PostgreSQL Extensions for PostgreSQL applications.
 
 ## Implementation Details
-[Comprehensive content for Document Processing & Text Embeddings]
+[Comprehensive content for PostgreSQL Extensions]
 
 ## Best Practices
 [Industry best practices and recommendations]

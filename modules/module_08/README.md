@@ -1,10 +1,10 @@
-# Module 08: Embedding Models & Fine-tuning
+# Module 08: API Integration
 
 ## Overview
-Embedding Models & Fine-tuning for PostgreSQL applications.
+API Integration for PostgreSQL applications.
 
 ## Implementation Details
-[Comprehensive content for Embedding Models & Fine-tuning]
+[Comprehensive content for API Integration]
 
 ## Best Practices
 [Industry best practices and recommendations]
