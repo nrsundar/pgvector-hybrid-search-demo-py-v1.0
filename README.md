@@ -180,21 +180,31 @@ This demonstration showcases three distinct search approaches, each with unique 
 
 **Example**: Searching "database optimization" finds documents about "SQL tuning", "query performance", and "index strategies" even if they don't contain the exact search terms.
 
-### ⚡ Hybrid Search (Best of Both Worlds)
-**How it works**: Combines traditional keyword matching with semantic vector search, using weighted scoring to merge both result sets.
+### ⚡ Hybrid Search (Multi-Modal + Keyword Fusion)
+**How it works**: Combines traditional keyword matching with multi-modal vector search across text AND images, using weighted scoring to merge results from different data types and search methods.
+
+**Multi-Modal Capabilities**:
+- **Text + Image Search**: Find documents by searching both textual content and visual elements
+- **Cross-Modal Discovery**: Use text queries to find relevant images, or image queries to find related text
+- **Combined Scoring**: Keyword relevance + Text embedding similarity + Image embedding similarity
 
 **Strengths**:
-- Balances precision (exact matches) with recall (semantic matches)
-- Configurable weighting between keyword and semantic relevance
-- Handles both specific technical terms and natural language queries
-- Provides comprehensive coverage of relevant results
+- True multi-modal search across text documents, images, and mixed content
+- Balances precision (exact keyword matches) with semantic understanding
+- Handles natural language queries that span multiple content types
+- Discovers relationships between visual and textual information
+- Configurable weighting between different search modalities
 
-**Implementation**:
-- Traditional score × keyword_weight + Semantic score × vector_weight = Final score
-- Typical weightings: 60% semantic + 40% keyword for broad discovery
-- Can be adjusted: 70% keyword + 30% semantic for precise technical searches
+**Implementation Examples**:
+- **Text + Keywords**: "PostgreSQL performance" + vector similarity + exact term matching
+- **Image + Text**: Upload architecture diagram + "database optimization" text query
+- **Pure Multi-Modal**: Search for "monitoring dashboards" and find both documentation AND relevant chart images
+- **Weighted Scoring**: 40% keywords + 35% text vectors + 25% image vectors
 
-**Example**: Searching "PostgreSQL indexing strategies" returns exact matches for those terms (high keyword score) plus semantically related content about "database performance tuning" and "query optimization" (high vector score).
+**Example Use Cases**:
+- Searching "database architecture patterns" finds text documents about architecture AND relevant diagram images
+- Uploading a database schema image finds related documentation and similar architectural diagrams
+- Query "performance monitoring" returns documentation, code examples, AND dashboard screenshots
 
 ### Use Case Recommendations
 
@@ -202,7 +212,7 @@ This demonstration showcases three distinct search approaches, each with unique 
 |-------------|----------|----------|
 | **Traditional** | Exact terminology, structured data, known keywords | Product SKUs, error codes, specific table names |
 | **Semantic** | Natural language, exploration, cross-domain discovery | "How to improve database speed?", content recommendation |
-| **Hybrid** | Enterprise applications, comprehensive coverage | Technical documentation search, knowledge bases |
+| **Hybrid Multi-Modal** | Mixed content types, visual + text search, enterprise knowledge bases | Architecture diagrams + documentation, image catalogs with descriptions, technical manuals with charts |
 
 
 
@@ -855,7 +865,7 @@ psql -h $DB_ENDPOINT -U postgres pgvector_hybrid_search_demo_py < backup_2023120
 
 ---
 
-**Generated on**: 2025-06-19T03:52:21.739Z
+**Generated on**: 2025-06-20T00:22:30.900Z
 **Version**: 1.0.0
 **Tested on**: AWS us-east-1
 **PostgreSQL Version**: 16

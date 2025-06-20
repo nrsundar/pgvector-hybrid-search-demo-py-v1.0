@@ -1,13 +1,13 @@
-# Module 03: Network Graph Structure
+# Module 03: Image Processing & Visual Embeddings
 
 ## Overview
-Network Graph Structure for PostgreSQL applications.
+Advanced pgvector implementation for Aurora PostgreSQL 16.
 
 ## Implementation Details
-[Comprehensive content for Network Graph Structure]
+[Comprehensive content for Image Processing & Visual Embeddings]
 
 ## Best Practices
-[Industry best practices and recommendations]
+[Industry best practices and recommendations for pgvector on Aurora]
 
 ## Next Steps
 Continue learning with the next module.
