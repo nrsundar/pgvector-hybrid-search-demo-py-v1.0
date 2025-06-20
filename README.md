@@ -865,7 +865,7 @@ psql -h $DB_ENDPOINT -U postgres pgvector_hybrid_search_demo_py < backup_2023120
 
 ---
 
-**Generated on**: 2025-06-20T02:39:12.352Z
+**Generated on**: 2025-06-20T02:54:42.378Z
 **Version**: 1.0.0
 **Tested on**: AWS us-east-1
 **PostgreSQL Version**: 16

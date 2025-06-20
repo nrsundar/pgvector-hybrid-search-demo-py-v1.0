@@ -9,8 +9,8 @@ Parameters:
   
   PostgreSQLVersion:
     Type: String
-    Default: '16'
-    Description: 'PostgreSQL engine version'
+    Default: '15.4'
+    Description: 'PostgreSQL engine version - Aurora uses 15.4, RDS uses 16'
   
   DatabaseInstanceType:
     Type: String
