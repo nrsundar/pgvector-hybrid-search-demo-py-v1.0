@@ -1,2 +1,11 @@
-id,name,description
-1,sample,Sample data
+id,name,category,description,status,priority,created_date,last_updated,metadata
+1,"Database Migration Project","infrastructure","Migrate legacy Oracle database to PostgreSQL with minimal downtime","in_progress","high","2024-01-15","2024-02-20","{}""
+2,"Performance Optimization","maintenance","Optimize slow-running queries and improve database performance","completed","medium","2024-01-20","2024-02-18","{""queries_optimized"": 15, ""performance_gain"": ""40%""}"
+3,"Security Audit Implementation","security","Implement database security best practices and compliance requirements","pending","critical","2024-02-01","2024-02-20","{""compliance_framework"": ""SOC2"", ""encryption"": true}"
+4,"Backup Strategy Enhancement","maintenance","Enhance backup and recovery procedures for business continuity","in_progress","medium","2024-02-05","2024-02-19","{""backup_frequency"": ""hourly"", ""retention_days"": 30}"
+5,"API Development","development","Develop REST API endpoints for customer data management","completed","high","2024-01-25","2024-02-15","{""endpoints"": 8, ""authentication"": ""JWT""}"
+6,"Data Analytics Dashboard","analytics","Create real-time analytics dashboard for business intelligence","in_progress","medium","2024-02-10","2024-02-20","{""charts"": 12, ""real_time"": true}"
+7,"Mobile App Integration","development","Integrate mobile application with PostgreSQL backend","pending","low","2024-02-12","2024-02-20","{""platforms"": [""iOS"", ""Android""], ""api_version"": ""v2""}"
+8,"Load Testing Infrastructure","testing","Implement comprehensive load testing for database performance","completed","medium","2024-02-01","2024-02-17","{""max_concurrent_users"": 1000, ""response_time_ms"": 150}"
+9,"Data Warehouse Setup","infrastructure","Set up data warehouse for historical data analysis and reporting","in_progress","high","2024-02-08","2024-02-20","{""data_sources"": 5, ""etl_jobs"": 8}"
+10,"Monitoring and Alerting","operations","Implement comprehensive monitoring and alerting system","pending","critical","2024-02-15","2024-02-20","{""metrics"": 25, ""alert_channels"": [""email"", ""slack"", ""pagerduty""]}";

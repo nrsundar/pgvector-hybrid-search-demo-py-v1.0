@@ -1,5 +1,5 @@
 -- Database Migration Script for pgvector-hybrid-search-demo-py
--- Generated: 2025-06-20T02:11:01.728Z
+-- Generated: 2025-06-20T02:26:19.740Z
 -- Target: Aurora PostgreSQL Aurora PostgreSQL 16
 -- Region: us-east-1
 

@@ -56,15 +56,15 @@ psql "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_NAME" -c "SELECT 
 if [ $? -eq 0 ]; then
     echo "✅ Database connection successful!"
     
-    # Test PostGIS extension
-    echo "Testing PostGIS extension..."
-    psql "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_NAME" -c "SELECT PostGIS_Version();"
+    
+    # Test standard PostgreSQL functions
+    echo "Testing standard PostgreSQL functions..."
+    psql "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_NAME" -c "SELECT jsonb_build_object('test', 'value');"
     
     if [ $? -eq 0 ]; then
-        echo "✅ PostGIS extension is available!"
+        echo "✅ JSONB functions working correctly!"
     else
-        echo "⚠️  PostGIS extension needs to be enabled"
-        echo "Run: psql -c 'CREATE EXTENSION IF NOT EXISTS postgis;'"
+        echo "⚠️  JSONB functions test failed"
     fi
 else
     echo "❌ Database connection failed!"
@@ -149,9 +149,13 @@ echo "Initializing Aurora PostgreSQL database for pgvector-hybrid-search-demo-py
 
 # Connect to database and run initialization
 psql "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_NAME" << 'SQLEOF'
--- Enable PostGIS extension
-CREATE EXTENSION IF NOT EXISTS postgis;
-CREATE EXTENSION IF NOT EXISTS postgis_topology;
+-- Enable JSONB and general extensions
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+CREATE EXTENSION IF NOT EXISTS btree_gin;
+
+-- Test JSONB functionality
+SELECT jsonb_build_object('test', 'value', 'timestamp', NOW()) as test_jsonb;
 
 
 -- Create sample spatial tables for general use cases

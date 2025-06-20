@@ -266,6 +266,6 @@ Outputs:
     Description: Database connection string from bastion host
     Value: !Sub 'postgresql://postgres:SecurePassword123!@${DatabaseCluster.Endpoint}:5432/postgres'
 
-  PostGISSetupCommand:
-    Description: Command to enable PostGIS extension
-    Value: 'psql -c "CREATE EXTENSION IF NOT EXISTS postgis;" <connection_string>'
+  ExtensionSetupCommand:
+    Description: Command to enable required extensions
+    Value: 'psql -c "CREATE EXTENSION IF NOT EXISTS btree_gin;" <connection_string>'
